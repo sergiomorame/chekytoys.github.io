@@ -173,3 +173,68 @@ h2 {
 .close:hover {
     color: #bbb;
 }
+
+
+.image-container {
+  position: relative;
+}
+
+.image-container img {
+  width: 100%;
+  display: block;
+}
+
+/* Texto AGOTADO */
+.agotado {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(220, 0, 0, 0.9);
+  color: white;
+  font-weight: bold;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Imagen gris cuando está agotado */
+.sin-stock img {
+  filter: grayscale(100%);
+  opacity: 0.7;
+}
+
+.image-container {
+  position: relative;
+}
+
+.image-container img {
+  width: 100%;
+  display: block;
+}
+
+/* Etiqueta AGOTADO */
+.agotado {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(200, 0, 0, 0.9);
+  color: white;
+  font-weight: bold;
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  z-index: 2;
+}
+
+/* Imagen en gris */
+.sin-stock img {
+  filter: grayscale(100%);
+  opacity: 0.7;
+}
+
+/* Botón deshabilitado */
+.whatsapp-button.disabled {
+  pointer-events: none;
+  background: gray;
+  opacity: 0.6;
+}
