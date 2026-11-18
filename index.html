@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chekytoys | Catálogo de Juguetes y Sistema de Apartado</title>
+  <meta name="description" content="Explora el catálogo de Chekytoys: Barbie, Hot Wheels, Nerf, Play-Doh, Bluey, Nenuco y más. ¡Compra hoy o utiliza nuestro Sistema de Apartado!" />
+  <meta name="theme-color" content="#2563EB" />
+  <link rel="icon" type="image/png" href="img/logo.png" />
+
+  <!-- Fuentes: Fredoka (títulos) y Plus Jakarta Sans (textos) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Estilos del sitio -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="antialiased selection:bg-cheky-yellow selection:text-slate-900">
+
+  <!-- ==================== TOP ANNOUNCEMENT BAR ==================== -->
+  <div class="bg-gradient-to-r from-cheky-purple via-cheky-pink to-cheky-coral text-white text-xs sm:text-sm font-semibold py-2 px-4 text-center relative z-40">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-2">
+      <span class="bg-cheky-yellow text-slate-900 text-[11px] font-extrabold uppercase px-2.5 py-0.5 rounded-full tracking-wide shadow-sm">
+        ✨ ¡Sistema de Apartado!
+      </span>
+      <span>Aparta tus juguetes favoritos con un pequeño anticipo y liquida poco a poco 🎁</span>
+    </div>
+  </div>
+
+  <!-- ==================== NAVBAR STICKY ==================== -->
+  <header class="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b-2 border-sky-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20 gap-3">
+        
+        <!-- Logo Ilustrado Chekytoys -->
+        <a href="#" class="flex items-center gap-2.5 group shrink-0">
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-cheky-yellow via-cheky-amber to-cheky-coral p-0.5 shadow-md group-hover:rotate-6 transition-transform">
+            <div class="w-full h-full bg-white rounded-[14px] flex items-center justify-center relative overflow-hidden">
+              <!-- SVG Logo Icon -->
+              <svg class="w-9 h-9" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="32" cy="32" r="28" fill="#E0F2FE"/>
+                <path d="M32 10L37.5 21.5L50 23.2L41 32L43.2 44.5L32 38.5L20.8 44.5L23 32L14 23.2L26.5 21.5L32 10Z" fill="#FACC15" stroke="#F59E0B" stroke-width="2.5" stroke-linejoin="round"/>
+                <circle cx="27" cy="29" r="2.2" fill="#1E293B"/>
+                <circle cx="37" cy="29" r="2.2" fill="#1E293B"/>
+                <path d="M28.5 34.5C29.8 36.2 34.2 36.2 35.5 34.5" stroke="#1E293B" stroke-width="2.3" stroke-linecap="round"/>
+                <circle cx="15" cy="15" r="3" fill="#EC4899"/>
+                <circle cx="50" cy="48" r="3.5" fill="#0EA5E9"/>
+              </svg>
+            </div>
+          </div>
+          <div>
+            <span class="font-display text-2xl sm:text-3xl font-bold tracking-tight bg-gradient-to-r from-cheky-blue via-cheky-purple to-cheky-pink bg-clip-text text-transparent block leading-none">
+              Chekytoys
+            </span>
+            <span class="text-[11px] font-bold text-slate-500 tracking-wider uppercase block mt-0.5">
+              Juguetes Mágicos
+            </span>
+          </div>
+        </a>
+
+        <!-- Buscador Desktop -->
+        <div class="hidden md:flex flex-1 max-w-md mx-4">
+          <div class="relative w-full">
+            <input 
+              type="text" 
+              id="navSearchInput"
+              placeholder="Buscar Barbie, Hot Wheels, pistas, muñecas..." 
+              class="w-full pl-11 pr-4 py-2.5 rounded-2xl bg-slate-100/90 border-2 border-transparent focus:border-cheky-sky focus:bg-white focus:outline-none text-sm font-medium transition-all"
+            />
+            <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+          </div>
+        </div>
+
+        <!-- Botones de Acción Navbar -->
+        <div class="flex items-center gap-2 sm:gap-3">
+          <a href="#como-apartar" class="hidden lg:inline-flex items-center gap-1.5 text-sm font-bold text-slate-600 hover:text-cheky-purple px-3 py-2 rounded-xl hover:bg-purple-50 transition-colors">
+            <i class="fa-solid fa-piggy-bank text-cheky-pink"></i>
+            <span>Apartados</span>
+          </a>
+
+          <!-- Botón Directo WhatsApp -->
+          <button 
+            onclick="openDirectWhatsApp()"
+            class="btn-toy hidden sm:inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-sm px-4 py-2.5 rounded-2xl shadow-btn-3d"
+            title="Escríbenos por WhatsApp"
+          >
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+            <span>WhatsApp</span>
+          </button>
+
+          <!-- Botón Carrito / Lista de Pedido -->
+          <button 
+            onclick="toggleCartDrawer(true)"
+            class="btn-toy relative inline-flex items-center gap-2 bg-cheky-yellow hover:bg-amber-300 text-slate-900 font-extrabold text-sm px-4 py-2.5 rounded-2xl shadow-btn-3d border-2 border-amber-400"
+            aria-label="Ver lista de pedido"
+          >
+            <i class="fa-solid fa-bag-shopping text-lg text-cheky-coral"></i>
+            <span class="hidden sm:inline">Mi Lista</span>
+            <span id="cartBadge" class="bg-cheky-coral text-white text-xs font-extrabold px-2 py-0.5 rounded-full min-w-[22px] text-center shadow-sm">
+              0
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Buscador Móvil -->
+      <div class="pb-3 md:hidden">
+        <div class="relative w-full">
+          <input 
+            type="text" 
+            id="mobileSearchInput"
+            placeholder="¿Qué juguete buscas hoy? Ej. Barbie, Nerf..." 
+            class="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-slate-100 border-2 border-transparent focus:border-cheky-sky focus:bg-white focus:outline-none text-sm font-medium"
+          />
+          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== HERO BANNER ILUSTRADO ==================== -->
+  <section class="relative bg-toy-pattern overflow-hidden pt-8 pb-14 sm:pt-12 sm:pb-20 border-b-4 border-sky-200/70">
+    <!-- Decoraciones SVG de fondo -->
+    <div class="absolute top-6 left-6 text-cheky-yellow opacity-70 animate-float pointer-events-none hidden sm:block">
+      <svg class="w-14 h-14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.1-1.01L12 2z"/></svg>
+    </div>
+    <div class="absolute bottom-10 right-10 text-cheky-pink opacity-30 animate-float-delayed pointer-events-none">
+      <svg class="w-24 h-24" viewBox="0 0 100 100" fill="currentColor"><circle cx="50" cy="50" r="45"/></svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+        
+        <!-- Columna Texto Hero -->
+        <div class="lg:col-span-7 text-center lg:text-left">
+          <div class="inline-flex flex-wrap items-center justify-center lg:justify-start gap-2 mb-4">
+            <span class="inline-flex items-center gap-1.5 bg-white border-2 border-cheky-sky text-cheky-blue font-extrabold text-xs sm:text-sm px-3.5 py-1.5 rounded-full shadow-sm">
+              <i class="fa-solid fa-certificate text-cheky-yellow"></i>
+              100% Juguetes Originales
+            </span>
+            <span class="inline-flex items-center gap-1.5 bg-gradient-to-r from-cheky-purple to-cheky-pink text-white font-extrabold text-xs sm:text-sm px-3.5 py-1.5 rounded-full shadow-sm">
+              <i class="fa-solid fa-calendar-check"></i>
+              Sistema de Apartado Disponible
+            </span>
+          </div>
+
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-[1.1] tracking-tight mb-5">
+            ¡La magia de jugar 
+            <span class="relative inline-block text-cheky-blue">
+              comienza aquí!
+              <svg class="absolute -bottom-2 left-0 w-full h-3 text-cheky-yellow" viewBox="0 0 200 12" fill="none" preserveAspectRatio="none">
+                <path d="M2 9C50 2 150 2 198 9" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-600 font-medium max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed">
+            Encuentra las mejores marcas del mundo en un solo lugar: <strong class="text-pink-600">Barbie</strong>, <strong class="text-blue-600">Hot Wheels</strong>, <strong class="text-orange-600">Nerf</strong>, <strong class="text-amber-600">Play-Doh</strong>, <strong class="text-sky-600">Bluey</strong> y <strong class="text-rose-500">Nenuco</strong>. ¡Arma tu lista y aparta hoy mismo!
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5">
+            <a href="#catalogo" class="btn-toy w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-cheky-blue to-cheky-sky hover:from-blue-700 hover:to-sky-600 text-white font-display text-lg font-semibold px-7 py-3.5 rounded-2xl shadow-btn-3d">
+              <i class="fa-solid fa-rocket"></i>
+              <span>Explorar Catálogo</span>
+            </a>
+            <button onclick="openDirectWhatsApp()" class="btn-toy w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-white hover:bg-emerald-50 text-emerald-600 border-2 border-emerald-500 font-display text-lg font-semibold px-7 py-3.5 rounded-2xl shadow-sm">
+              <i class="fa-brands fa-whatsapp text-xl"></i>
+              <span>Cotizar por WhatsApp</span>
+            </button>
+          </div>
+
+          <!-- Mini badges de confianza -->
+          <div class="mt-8 pt-6 border-t border-sky-200/80 grid grid-cols-3 gap-2 sm:gap-4 max-w-lg mx-auto lg:mx-0 text-center lg:text-left">
+            <div class="flex flex-col sm:flex-row items-center gap-2">
+              <div class="w-9 h-9 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="text-xs font-bold text-slate-700 leading-tight">Marcas Líderes Garantizadas</span>
+            </div>
+            <div class="flex flex-col sm:flex-row items-center gap-2">
+              <div class="w-9 h-9 rounded-xl bg-pink-100 text-pink-600 flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-hand-holding-dollar"></i>
+              </div>
+              <span class="text-xs font-bold text-slate-700 leading-tight">Aparta con Poco Anticipo</span>
+            </div>
+            <div class="flex flex-col sm:flex-row items-center gap-2">
+              <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-gift"></i>
+              </div>
+              <span class="text-xs font-bold text-slate-700 leading-tight">Atención Rápida Personalizada</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Columna Ilustración Vectorial Rica (Vitrina Mágica de Juguetes) -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-full max-w-md animate-float">
+            <!-- Tarjeta Ilustrada Principal -->
+            <div class="bg-white rounded-[2.25rem] p-5 sm:p-6 shadow-toy border-4 border-white relative overflow-hidden">
+              <div class="bg-gradient-to-br from-sky-400 via-indigo-400 to-purple-500 rounded-[1.75rem] p-6 text-white relative overflow-hidden">
+                <!-- Ilustración SVG Completa de Cofre/Cohete de Juguetes -->
+                <svg class="w-full h-56 sm:h-64 mx-auto drop-shadow-lg" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Nubes y estrellas -->
+                  <circle cx="70" cy="60" r="24" fill="white" fill-opacity="0.2"/>
+                  <circle cx="95" cy="65" r="18" fill="white" fill-opacity="0.2"/>
+                  <circle cx="330" cy="50" r="20" fill="white" fill-opacity="0.18"/>
+                  <path d="M310 95L314 104L324 105L316 112L318 122L310 117L302 122L304 112L296 105L306 104L310 95Z" fill="#FDE047"/>
+                  <path d="M75 130L78 136L85 137L80 142L81 149L75 145L69 149L70 142L65 137L72 136L75 130Z" fill="#FDE047"/>
+
+                  <!-- Caja de Regalo Central Abierta -->
+                  <rect x="115" y="155" width="170" height="110" rx="18" fill="#FF5A5F"/>
+                  <rect x="115" y="155" width="170" height="24" rx="8" fill="#E11D48"/>
+                  <rect x="186" y="155" width="28" height="110" fill="#FACC15"/>
+                  
+                  <!-- Cohete saliendo de la caja -->
+                  <g transform="translate(155, 32) rotate(-10)">
+                    <path d="M45 10C45 10 75 40 75 85H15C15 40 45 10 45 10Z" fill="#FFFFFF"/>
+                    <path d="M45 10C45 10 60 28 63 45H27C30 28 45 10 45 10Z" fill="#EC4899"/>
+                    <circle cx="45" cy="62" r="13" fill="#0EA5E9" stroke="#E0F2FE" stroke-width="4"/>
+                    <path d="M15 70L0 92H18L15 70Z" fill="#F59E0B"/>
+                    <path d="M75 70L90 92H72L75 70Z" fill="#F59E0B"/>
+                    <path d="M33 85L45 110L57 85H33Z" fill="#FACC15"/>
+                  </g>
+
+                  <!-- Auto de Carreras (Hot Wheels style) a la izquierda -->
+                  <g transform="translate(45, 195)">
+                    <rect x="10" y="25" width="95" height="28" rx="12" fill="#2563EB"/>
+                    <path d="M28 25L42 8H75L88 25H28Z" fill="#38BDF8"/>
+                    <circle cx="32" cy="53" r="14" fill="#1E293B"/>
+                    <circle cx="32" cy="53" r="6" fill="#94A3B8"/>
+                    <circle cx="82" cy="53" r="14" fill="#1E293B"/>
+                    <circle cx="82" cy="53" r="6" fill="#94A3B8"/>
+                    <path d="M12 36H45" stroke="#FACC15" stroke-width="4" stroke-linecap="round"/>
+                  </g>
+
+                  <!-- Osito / Muñeco tierno a la derecha -->
+                  <g transform="translate(260, 175)">
+                    <circle cx="25" cy="22" r="12" fill="#F59E0B"/>
+                    <circle cx="65" cy="22" r="12" fill="#F59E0B"/>
+                    <circle cx="45" cy="42" r="28" fill="#FBBF24"/>
+                    <circle cx="45" cy="48" r="12" fill="#FEF3C7"/>
+                    <circle cx="36" cy="37" r="3" fill="#1E293B"/>
+                    <circle cx="54" cy="37" r="3" fill="#1E293B"/>
+                    <circle cx="45" cy="45" r="3.5" fill="#92400E"/>
+                    <path d="M32 72C32 62 58 62 58 72V90H32V72Z" fill="#EC4899"/>
+                  </g>
+                </svg>
+
+                <!-- Etiqueta Flotante sobre ilustración -->
+                <div class="mt-2 flex items-center justify-between bg-white/15 backdrop-blur-md rounded-2xl px-4 py-2.5 border border-white/25">
+                  <div>
+                    <p class="text-xs uppercase tracking-wider font-bold text-yellow-200">Catálogo Actualizado</p>
+                    <p class="font-display text-base sm:text-lg font-bold"><span id="heroBrandCount">+20</span> marcas en catálogo</p>
+                  </div>
+                  <span class="bg-cheky-yellow text-slate-900 font-extrabold text-xs px-3 py-1.5 rounded-xl shadow">
+                    ¡Elige el tuyo!
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== BARRA DE MARCAS OFICIALES INTERACTIVA ==================== -->
+  <section class="py-8 bg-white border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="font-display text-xl sm:text-2xl font-bold text-slate-800 flex items-center gap-2">
+          <span class="w-8 h-8 rounded-xl bg-cheky-yellow/30 text-amber-600 flex items-center justify-center text-base">
+            <i class="fa-solid fa-crown"></i>
+          </span>
+          Explora por Marca Favorita
+        </h2>
+        <span class="text-xs font-bold text-slate-400 hidden sm:inline">Haz clic en una marca para filtrar</span>
+      </div>
+
+      <!-- Pills / Badges de Marcas -->
+      <div id="brandFilterBar" class="flex items-center gap-3 overflow-x-auto no-scrollbar pb-2">
+        <!-- Se renderizan dinámicamente con JS para mantener estado activo sincronizado -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SECCIÓN PRINCIPAL DE CATÁLOGO ==================== -->
+  <main id="catalogo" class="py-10 sm:py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Encabezado y Controles de Filtro -->
+    <div class="bg-white rounded-3xl p-4 sm:p-6 shadow-toy border border-slate-100 mb-8">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        
+        <!-- Filtros por Categoría / Edad -->
+        <div class="flex flex-wrap items-center gap-2" id="categoryFilterBar">
+          <!-- Se generan con JS a partir de las categorías del catálogo -->
+        </div>
+
+        <!-- Ordenamiento y Contador -->
+        <div class="flex flex-wrap items-center justify-between sm:justify-end gap-3 pt-3 lg:pt-0 border-t lg:border-t-0 border-slate-100">
+          <span id="resultsCount" class="text-xs sm:text-sm font-bold text-slate-500">
+            Cargando juguetes...
+          </span>
+          <label class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-600 cursor-pointer select-none">
+            <input type="checkbox" id="hideSoldOut" class="w-4 h-4 accent-cheky-blue rounded" />
+            Ocultar agotados
+          </label>
+          <select 
+            id="sortSelect" 
+            class="bg-slate-100 border-2 border-transparent focus:border-cheky-sky rounded-xl px-3 py-2 text-xs sm:text-sm font-bold text-slate-700 focus:outline-none cursor-pointer"
+          >
+            <option value="featured">Recomendados</option>
+            <option value="price-asc">Precio: Menor a Mayor</option>
+            <option value="price-desc">Precio: Mayor a Menor</option>
+            <option value="name">Nombre: A - Z</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cuadrícula de Productos -->
+    <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <!-- Las tarjetas se inyectan dinámicamente vía JavaScript -->
+    </div>
+
+    <!-- Estado Vacío (si la búsqueda no arroja resultados) -->
+    <div id="emptyState" class="hidden text-center py-16 px-4 bg-white rounded-3xl border-2 border-dashed border-sky-200 mt-6">
+      <div class="w-20 h-20 bg-sky-50 text-cheky-sky rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+      <h3 class="font-display text-2xl font-bold text-slate-800 mb-2">¡Ups! No encontramos ese juguete</h3>
+      <p class="text-slate-500 max-w-md mx-auto mb-6 text-sm sm:text-base">
+        Intenta buscar con otra palabra o limpia los filtros para ver todo nuestro catálogo disponible.
+      </p>
+      <button onclick="resetAllFilters()" class="btn-toy bg-cheky-blue text-white font-bold px-6 py-3 rounded-2xl shadow-btn-3d">
+        Ver todos los juguetes
+      </button>
+    </div>
+
+  </main>
+
+  <!-- ==================== SECCIÓN SISTEMA DE APARTADO (3 PASOS) ==================== -->
+  <section id="como-apartar" class="py-14 sm:py-20 bg-gradient-to-b from-purple-50 via-pink-50/60 to-amber-50/50 border-t-2 border-purple-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="inline-block bg-purple-100 text-cheky-purple font-extrabold text-xs uppercase tracking-wider px-4 py-1.5 rounded-full mb-3">
+          ¡Compra sin presiones!
+        </span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900 mb-3">
+          ¿Cómo funciona nuestro <span class="text-cheky-pink">Sistema de Apartado</span>?
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base font-medium">
+          Asegura ese regalo especial de cumpleaños, Día del Niño o Navidad antes de que se agote en 3 pasos súper sencillos.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <!-- Paso 1 -->
+        <div class="bg-white rounded-3xl p-7 shadow-toy border-2 border-sky-100 relative overflow-hidden group hover:-translate-y-1 transition-transform">
+          <div class="w-14 h-14 rounded-2xl bg-sky-100 text-cheky-blue font-display text-2xl font-bold flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            1
+          </div>
+          <h3 class="font-display text-xl font-bold text-slate-800 mb-2">Elige tus juguetes favoritos</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Explora el catálogo, agrega los juguetes que te gusten a <strong>"Mi Lista"</strong> y selecciona la opción de Sistema de Apartado al enviar tu cotización.
+          </p>
+          <div class="mt-4 text-sky-500 text-xs font-extrabold flex items-center gap-1.5">
+            <i class="fa-solid fa-check-circle"></i> Sin límite de piezas
+          </div>
+        </div>
+
+        <!-- Paso 2 -->
+        <div class="bg-white rounded-3xl p-7 shadow-toy border-2 border-pink-100 relative overflow-hidden group hover:-translate-y-1 transition-transform">
+          <div class="w-14 h-14 rounded-2xl bg-pink-100 text-cheky-pink font-display text-2xl font-bold flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            2
+          </div>
+          <h3 class="font-display text-xl font-bold text-slate-800 mb-2">Aparta con un pequeño anticipo</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Te confirmamos disponibilidad inmediata por WhatsApp y congelas el precio de tus juguetes con un anticipo accesible.
+          </p>
+          <div class="mt-4 text-pink-500 text-xs font-extrabold flex items-center gap-1.5">
+            <i class="fa-solid fa-lock"></i> Precio y existencia asegurados
+          </div>
+        </div>
+
+        <!-- Paso 3 -->
+        <div class="bg-white rounded-3xl p-7 shadow-toy border-2 border-amber-100 relative overflow-hidden group hover:-translate-y-1 transition-transform">
+          <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-600 font-display text-2xl font-bold flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            3
+          </div>
+          <h3 class="font-display text-xl font-bold text-slate-800 mb-2">Liquida poco a poco y recíbelos</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Realiza abonos cómodos a tu ritmo. Una vez liquidado tu apartado, coordinamos la entrega de tus juguetes listos para regalar.
+          </p>
+          <div class="mt-4 text-amber-600 text-xs font-extrabold flex items-center gap-1.5">
+            <i class="fa-solid fa-gift"></i> Entrega segura y puntual
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Banner Apartado -->
+      <div class="mt-10 bg-gradient-to-r from-cheky-blue via-cheky-purple to-cheky-pink rounded-3xl p-6 sm:p-8 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-lg">
+        <div class="text-center md:text-left">
+          <h3 class="font-display text-2xl sm:text-3xl font-bold mb-1">¿Buscas un juguete en especial que no ves aquí?</h3>
+          <p class="text-white/90 text-sm sm:text-base">Mándanos foto o nombre por WhatsApp y te lo conseguimos sobre pedido.</p>
+        </div>
+        <button onclick="openDirectWhatsApp('¡Hola Chekytoys! Me gustaría preguntar por un juguete en especial y su sistema de apartado.')" class="btn-toy shrink-0 bg-cheky-yellow hover:bg-amber-300 text-slate-900 font-extrabold px-6 py-3.5 rounded-2xl shadow-btn-3d flex items-center gap-2 text-sm sm:text-base">
+          <i class="fa-brands fa-whatsapp text-xl text-emerald-700"></i>
+          <span>Preguntar ahora</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER COMPLETO ==================== -->
+  <footer class="bg-slate-900 text-slate-300 pt-14 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-10 border-b border-slate-800">
+        
+        <!-- Columna 1: Marca -->
+        <div>
+          <div class="flex items-center gap-2.5 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-cheky-yellow flex items-center justify-center text-slate-900 font-display font-bold text-xl">
+              ★
+            </div>
+            <span class="font-display text-2xl font-bold text-white">Chekytoys</span>
+          </div>
+          <p class="text-sm text-slate-400 leading-relaxed mb-4">
+            Tu juguetería de confianza con las marcas más queridas por los niños. Juguetes 100% originales, atención cercana y facilidad de apartado.
+          </p>
+          <div class="flex items-center gap-3">
+            <button onclick="openDirectWhatsApp()" class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-emerald-500 text-white flex items-center justify-center transition-colors" aria-label="WhatsApp">
+              <i class="fa-brands fa-whatsapp text-lg"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Columna 2: Marcas -->
+        <div>
+          <h4 class="font-display text-lg font-bold text-white mb-4">Nuestras Marcas</h4>
+          <ul class="space-y-2 text-sm">
+            <li><button onclick="selectBrandFromFooter('Barbie')" class="hover:text-cheky-yellow transition-colors">• Barbie & Muñecas</button></li>
+            <li><button onclick="selectBrandFromFooter('Hot Wheels')" class="hover:text-cheky-yellow transition-colors">• Hot Wheels & Pistas</button></li>
+            <li><button onclick="selectBrandFromFooter('Nerf')" class="hover:text-cheky-yellow transition-colors">• Nerf Lanzadores</button></li>
+            <li><button onclick="selectBrandFromFooter('Play-Doh')" class="hover:text-cheky-yellow transition-colors">• Play-Doh Creatividad</button></li>
+            <li><button onclick="selectBrandFromFooter('Bluey')" class="hover:text-cheky-yellow transition-colors">• Bluey & Preescolar</button></li>
+            <li><button onclick="selectBrandFromFooter('Nenuco')" class="hover:text-cheky-yellow transition-colors">• Nenuco & Accesorios</button></li>
+          </ul>
+        </div>
+
+        <!-- Columna 3: Atención y Horarios -->
+        <div>
+          <h4 class="font-display text-lg font-bold text-white mb-4">Atención al Cliente</h4>
+          <ul class="space-y-3 text-sm text-slate-400">
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-clock text-cheky-yellow mt-1"></i>
+              <span>Lunes a Sábado:<br><strong class="text-slate-200">10:00 AM – 8:00 PM</strong></span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-credit-card text-cheky-sky mt-1"></i>
+              <span>Métodos de Pago:<br><strong class="text-slate-200">Efectivo y Transferencia</strong></span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-piggy-bank text-cheky-pink mt-1"></i>
+              <span>Sistema de Apartado:<br><strong class="text-slate-200">Disponible todo el año</strong></span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Columna 4: Contacto Rápido -->
+        <div>
+          <h4 class="font-display text-lg font-bold text-white mb-4">¿Listo para pedir?</h4>
+          <p class="text-sm text-slate-400 mb-4">
+            Agrega tus juguetes a tu lista o envíanos un mensaje directo para confirmar existencias.<br><strong class="text-slate-200">WhatsApp: 729 108 0492</strong>
+          </p>
+          <button onclick="openDirectWhatsApp()" class="btn-toy w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-4 rounded-2xl flex items-center justify-center gap-2 shadow-btn-3d">
+            <i class="fa-brands fa-whatsapp text-xl"></i>
+            <span>Chatear en WhatsApp</span>
+          </button>
+        </div>
+
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-3">
+        <p>© <span id="year">2026</span> Chekytoys - Juguetes Mágicos. Todos los derechos reservados.</p>
+        <p>Las marcas mostradas pertenecen a sus respectivos fabricantes.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== MODAL DE DETALLES DEL PRODUCTO ==================== -->
+  <div id="productModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
+    <div class="bg-white rounded-[2rem] max-w-3xl w-full max-h-[92vh] overflow-y-auto shadow-2xl border-4 border-white relative" onclick="event.stopPropagation()">
+      <!-- Botón Cerrar -->
+      <button onclick="closeProductModal()" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/90 hover:bg-rose-500 hover:text-white text-slate-700 shadow-md flex items-center justify-center transition-colors">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <div id="modalContent" class="grid grid-cols-1 md:grid-cols-2">
+        <!-- Contenido dinámico del producto -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== DRAWER LATERAL: MI LISTA DE PEDIDO / COTIZACIÓN ==================== -->
+  <div id="cartDrawerBackdrop" onclick="toggleCartDrawer(false)" class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-xs hidden opacity-0 drawer-backdrop"></div>
+  
+  <aside id="cartDrawer" class="fixed top-0 right-0 z-50 h-full w-full max-w-md bg-white shadow-2xl translate-x-full drawer-panel flex flex-col">
+    <!-- Header Drawer -->
+    <div class="p-5 bg-gradient-to-r from-cheky-blue to-cheky-sky text-white flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <div class="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-xl">
+          🎁
+        </div>
+        <div>
+          <h3 class="font-display text-xl font-bold leading-tight">Mi Lista de Juguetes</h3>
+          <p class="text-xs text-sky-100">Cotiza o aparta directo por WhatsApp</p>
+        </div>
+      </div>
+      <button onclick="toggleCartDrawer(false)" class="w-9 h-9 rounded-xl bg-white/15 hover:bg-white/30 flex items-center justify-center transition-colors">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+    </div>
+
+    <!-- Lista de Items -->
+    <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-5 space-y-3 bg-slate-50/70">
+      <!-- Items dinámicos -->
+    </div>
+
+    <!-- Footer Drawer con Opciones de Compra / Apartado -->
+    <div id="cartFooter" class="p-5 bg-white border-t-2 border-slate-100 space-y-4">
+      <!-- Selector Modalidad -->
+      <div>
+        <label class="block text-xs font-extrabold uppercase tracking-wider text-slate-500 mb-2">
+          ¿Cómo deseas adquirirlos?
+        </label>
+        <div class="grid grid-cols-2 gap-2">
+          <label class="cursor-pointer">
+            <input type="radio" name="orderMode" value="Compra Directa" checked class="peer sr-only" />
+            <div class="p-2.5 rounded-xl border-2 border-slate-200 peer-checked:border-cheky-blue peer-checked:bg-sky-50 text-center transition-all">
+              <span class="block text-xs font-extrabold text-slate-800">🛍️ Compra Directa</span>
+              <span class="block text-[10px] text-slate-500">Pago total</span>
+            </div>
+          </label>
+          <label class="cursor-pointer">
+            <input type="radio" name="orderMode" value="Sistema de Apartado" class="peer sr-only" />
+            <div class="p-2.5 rounded-xl border-2 border-slate-200 peer-checked:border-cheky-pink peer-checked:bg-pink-50 text-center transition-all">
+              <span class="block text-xs font-extrabold text-slate-800">✨ Apartado</span>
+              <span class="block text-[10px] text-slate-500">Con anticipo</span>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Total Estimado -->
+      <div class="flex items-center justify-between pt-2 border-t border-slate-100">
+        <span class="text-sm font-bold text-slate-600">Total Estimado:</span>
+        <span id="cartTotalAmount" class="font-display text-2xl font-bold text-slate-900">$0 MXN</span>
+      </div>
+
+      <!-- Botón Enviar por WhatsApp -->
+      <button 
+        onclick="sendCartToWhatsApp()"
+        class="btn-toy w-full bg-emerald-500 hover:bg-emerald-600 text-white font-display text-lg font-bold py-3.5 px-5 rounded-2xl shadow-btn-3d flex items-center justify-center gap-2.5"
+      >
+        <i class="fa-brands fa-whatsapp text-2xl"></i>
+        <span>Enviar Pedido por WhatsApp</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ==================== TOAST NOTIFICATION (Sin alert()) ==================== -->
+  <div id="toastContainer" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 pointer-events-none flex flex-col items-center gap-2"></div>
+
+  <!-- ==================== BOTÓN FLOTANTE WHATSAPP MÓVIL ==================== -->
+  <button 
+    onclick="openDirectWhatsApp()"
+    class="sm:hidden fixed bottom-5 right-5 z-30 w-14 h-14 rounded-full bg-emerald-500 text-white shadow-xl flex items-center justify-center text-2xl animate-bounce"
+    aria-label="WhatsApp Chekytoys"
+  >
+    <i class="fa-brands fa-whatsapp"></i>
+  </button>
+
+  <!-- Lógica del catálogo y lista de productos -->
+  <script src="script.js"></script>
+</body>
+</html>
